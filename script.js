@@ -11,13 +11,13 @@ function fill()
 {
 	let original_box= document.getElementById("grid");
 	let trs=original_box.getElementsByTagName("tr");
-
-	for (let i=0; i<trs.length; i++)
+	
+	for (let i=0; i<numRows; i++)
 	{
 		let tds= trs[i].getElementsByTagName("td");
-		for (let j=0; j<tds.length; n++)
+		for (let j=0; j<numCols; j++)
 		{
-			tds.style.backgroundColor="red";
+			tds[j].style.backgroundColor=colorSelected;
 		}
 	}
 }
