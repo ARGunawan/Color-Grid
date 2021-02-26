@@ -38,8 +38,9 @@ function fillU()
 		let tds= trs[i].getElementsByTagName("td");		//to access the columns of the boxes in each row
 		for (let j=0; j<numCols; j++)
 		{
-			if (tds[j].style.backgroundColor=="white")		//if the box is still uncolored(white)
-				tds[j].style.backgroundColor=colorSelected; //change color to color Selected
+			if (tds[j].style.backgroundColor==="" || tds[j].style.backgroundColor==="white"){		//if the box is white or undefined(for some reason thats how it is instantiated)
+				tds[j].style.backgroundColor=colorSelected;     //change color to color Selected
+			}
 		}
 	}
 }
