@@ -11,18 +11,38 @@ function selected(){
 //done by Caitlin-Dawn Sangcap
 function addR() 
 {
+	//getting access to the grid
 	var table = document.getElementById("grid");
+
+	//getting the number of rows
+	let rows = table.getElementsByTagName("tr");
+
+
+
 	let row = document.createElement("tr");
 	var cell = document.createElement("td");
 	row.append(cell);
 	table.append(row);
 	numRows++;
-	if (numRows==1)
-	{
-		numCols=1;
-	}
+	numCols=1;		
+
+	
+
+
+
+	// let row = document.createElement("tr");
+	// var cell = document.createElement("td");
+	// row.append(cell);
+	// table.append(row);
+	// numRows++;
+	// if (numRows==1)
+	// {
+	// 	numCols=1;
+	// }
+
+
 	//checking that the rows were being added
-	//console.log("clicked add row", numRows);
+	console.log("clicked add row", numRows);
 }
 //adding the addC() function
 //done by Caitlin-Dawn Sangcap
