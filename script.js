@@ -2,8 +2,8 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected;
 
-function selcted(){
-	colorSelected = document.getElementById("selctedID").value;
+function selected(){
+	colorSelected = document.getElementById("selectedID").value;
 	console.log(colorSelected);
 }
 
@@ -12,11 +12,15 @@ function selcted(){
 function addR() 
 {
 	var table = document.getElementById("grid");
-	let row = document.createElement("TR");
-	var cell = document.createElement("TD");
+	let row = document.createElement("tr");
+	var cell = document.createElement("td");
 	row.append(cell);
 	table.append(row);
 	numRows++;
+	if (numRows==1)
+	{
+		numCols=1;
+	}
 	//checking that the rows were being added
 	//console.log("clicked add row", numRows);
 }
