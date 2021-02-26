@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Grid</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<button onclick="addR()"></button>
+	<button onclick="addC()"></button>
+	<button onclick="removeR()"></button>
+	<button onclick="removeC()"></button>
+	<button onclick="fillU()"></button>
+	<button onclick="fill()"></button>
+	<button onclick="clearAll()"></button>
+	<select onchange="selected()" id="selectedID">
+		<option value="SELECT">SELECT</option>
+		<option value="Red">Red</option>
+		<option value="Blue">Blue</option>
+		<option value="Green">Green</option>
+		<option value="Yellow">Yello</option>
+	</select>
+	<table id="grid"></table>
+	<script src="script.js"></script>
+</body>
+</html>
