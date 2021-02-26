@@ -14,35 +14,35 @@ function addR()
 	//getting access to the grid
 	var table = document.getElementById("grid");
 
-	//getting the number of rows
-	let rows = table.getElementsByTagName("tr");
+	//creating the new row
+	let rows = document.createElement("tr");
 
+	//for the case if the Add Row button get hit first
+	let count =0;
 
+	if(numCols==0)
+	{
+		count = 1;
+		numCols=1;
+	}
+	else
+	{
+		count = numCols;
+	}
 
-	let row = document.createElement("tr");
-	var cell = document.createElement("td");
-	row.append(cell);
-	table.append(row);
+	for(var x=0; x<count; x++)
+	{
+		//making the new block
+		var cell = document.createElement("td");
+		//adding the block to the row
+		rows.append(cell);
+	}
+	//adding the completed row to the grid
+	table.append(rows);
 	numRows++;
-	numCols=1;		
-
-	
-
-
-
-	// let row = document.createElement("tr");
-	// var cell = document.createElement("td");
-	// row.append(cell);
-	// table.append(row);
-	// numRows++;
-	// if (numRows==1)
-	// {
-	// 	numCols=1;
-	// }
-
 
 	//checking that the rows were being added
-	console.log("clicked add row", numRows);
+	//console.log("clicked add row", numRows);
 }
 //adding the addC() function
 //done by Caitlin-Dawn Sangcap
@@ -52,11 +52,33 @@ function addC()
 	var table = document.getElementById("grid");
 	//getting the number of rows
 	let rows = table.getElementsByTagName("tr");
+	//creating a new row just incase
+	let new_row = document.createElement("tr");
+	let count =0;
+
+	if(numRows==0)
+	{
+		count = 1;
+		numRows=1;
+	}
+	else
+	{
+		count = numRows;
+	}
 	//let trial = rows[0];
-	for(var x =0; x<rows.length; x++)
+	//let rows = table.getElementsByTagName("tr");
+	for(var x =0; x<count; x++)
 	{
 		var cell = document.createElement("td");
-		rows[x].append(cell);
+		if(rows==0)
+		{
+			new_row.append(cell);
+			table.append(new_row);
+		}
+		//else
+		//{
+			rows[x].append(cell);
+		//}
 	}
 	//incrementing the number of cols by 1
 	numCols++;
