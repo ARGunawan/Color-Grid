@@ -25,6 +25,7 @@ function addR()
 	//console.log("clicked add row", numRows);
 }
 
+
 //adding the fill() function
 //done by James Yoo
 function fill()
@@ -58,6 +59,7 @@ function clearAll()
 		}
 	}
 }
+
 
 /****************************************************************************************/
 //removeR method removes the last row of the grid
