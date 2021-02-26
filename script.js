@@ -18,7 +18,7 @@ function addR()
 	table.append(row);
 	numRows++;
 	//checking that the rows were being added
-	console.log("clicked add row", numRows);
+	//console.log("clicked add row", numRows);
 }
 
 //adding the fill() function
