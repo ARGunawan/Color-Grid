@@ -18,7 +18,7 @@ function addR()
 	table.append(row);
 	numRows++;
 	//checking that the rows were being added
-	//console.log("clicked add row", numRows);
+	console.log("clicked add row", numRows);
 }
 
 //adding the fill() function
@@ -59,12 +59,31 @@ function clearAll()
 //removeR method removes the last row of the grid
 // created by: Ifte Ahmed
 function removeR(){ 
-	//rows is a nodelist of the TR elements that exist on the page
+	//rows is a list of the TR elements that exist on the page
 	let rows = document.getElementById('grid').getElementsByTagName("TR");
 	if(rows.length == 0){ //edge case if there are no rows to remove
 		alert("no more rows to remove, add some if you like")
 	}else{	
 		rows[rows.length-1].remove();//gets the last row in the list of rows to remove
+		numRows--;//decrease global counter
 	}
 }//end of removeR method
+/****************************************************************************************/
+
+/****************************************************************************************/
+//removeR method removes the last column for the grid
+// created by: Ifte Ahmed
+function removeC(){ 
+	//rows is a list of the TR elements that exist on the page
+	let rows = document.getElementById('grid').getElementsByTagName("TR");
+	for(let i =0;i<rows.length;i++){
+		let cols = rows[i].getElementsByTagName("TD");//gets list of all the columns per row
+		if(cols.length == 0){ //if no colums send alert
+			alert("no more columns to delete, add some if you like");
+		}else{
+			cols[cols.length-1].remove(); //remove last column
+			numCols--; //decrease global counter
+		}
+	}
+}//end of removeC method
 /****************************************************************************************/
