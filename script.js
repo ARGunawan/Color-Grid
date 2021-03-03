@@ -11,38 +11,79 @@ function selected(){
 //done by Caitlin-Dawn Sangcap
 function addR() 
 {
+	//getting access to the grid
 	var table = document.getElementById("grid");
-	let row = document.createElement("tr");
-	var cell = document.createElement("td");
-	row.append(cell);
-	table.append(row);
-	numRows++;
-	if (numRows==1)
+
+	//creating the new row
+	let rows = document.createElement("tr");
+
+	//for the case if the Add Row button get hit first
+	let count =0;
+
+	if(numCols==0)
 	{
+		count = 1;
 		numCols=1;
 	}
+	else
+	{
+		count = numCols;
+	}
+
+	for(var x=0; x<count; x++)
+	{
+		//making the new block
+		var cell = document.createElement("td");
+		//adding the block to the row
+		rows.append(cell);
+	}
+	//adding the completed row to the grid
+	table.append(rows);
+	numRows++;
+
 	//checking that the rows were being added
 	//console.log("clicked add row", numRows);
 }
-
-
-//adding fillU() method
-//done by James Yoo
-function fillU()
+//adding the addC() function
+//done by Caitlin-Dawn Sangcap
+function addC()
 {
-	let original_box= document.getElementById("grid");	//access the grid
-	let trs=original_box.getElementsByTagName("tr");	//get all the elements of tr
-	
-	for (let i=0; i<numRows; i++)						//loop through to go through tows and columns
+	//getting access to the grid
+	var table = document.getElementById("grid");
+
+	//in the case that the Add Col button is pushed first
+	if(numRows==0 && numCols==0)
 	{
-		let tds= trs[i].getElementsByTagName("td");		//to access the columns of the boxes in each row
-		for (let j=0; j<numCols; j++)
-		{
-			if (tds[j].style.backgroundColor==="" || tds[j].style.backgroundColor==="white"){		//if the box is white or undefined(for some reason thats how it is instantiated)
-				tds[j].style.backgroundColor=colorSelected;     //change color to color Selected
-			}
-		}
+		numRows=1;
+		numCols=1;
+    //create the new row
+		let rows = document.createElement("tr");
+    //create the new cell
+		var cell = document.createElement("td");
+    //add the cell to the row
+		rows.append(cell);
+    //add the new row to the table
+		table.append(rows);
 	}
+	
+  //for every other button push
+	else
+	{
+    //get the current existing rows in the table 
+		let get_row = table.getElementsByTagName("tr");
+    //go through each row
+		for(var x=0; x<numRows; x++)
+		{
+      //make a new cell
+			var cell = document.createElement("td");
+      //add cell to the row it is currently on
+			get_row[x].append(cell);
+		}
+    //increment the number of numCols
+    numCols++;
+	//checking that the rows were being added
+	//console.log("clicked add row", numRows);
+  }
 }
 
 //adding the fill() function
@@ -79,7 +120,6 @@ function clearAll()
 	}
 }
 
-
 /****************************************************************************************/
 //removeR method removes the last row of the grid
 // created by: Ifte Ahmed
@@ -87,6 +127,7 @@ function removeR(){
 	//rows is a list of the TR elements that exist on the page
 	let rows = document.getElementById('grid').getElementsByTagName("TR");
 	if(rows.length == 0){ //edge case if there are no rows to remove
+    
 		alert("no more rows to remove, add some if you like");
 	}else{	
 		rows[rows.length-1].remove();//gets the last row in the list of rows to remove
@@ -105,6 +146,7 @@ function removeR(){
 function removeC(){ 
 	//rows is a list of the TR elements that exist on the page
 	let rows = document.getElementById('grid').getElementsByTagName("TR");
+
 	if(numCols == 0){ //if no colums send alert
 		alert("no more rows to remove, add some if you like");
 	}else{
