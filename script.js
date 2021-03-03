@@ -50,39 +50,30 @@ function addC()
 {
 	//getting access to the grid
 	var table = document.getElementById("grid");
-	//getting the number of rows
-	let rows = table.getElementsByTagName("tr");
-	//creating a new row just incase
-	let new_row = document.createElement("tr");
-	let count =0;
 
-	if(numRows==0)
+	//in the case that the Add Col button is pushed first
+	if(numRows==0 && numCols==0)
 	{
-		count = 1;
 		numRows=1;
+		numCols=1;
+		let rows = document.createElement("tr");
+		var cell = document.createElement("td");
+		rows.append(cell);
+		table.append(rows);
 	}
+	
 	else
 	{
-		count = numRows;
-	}
-	//let trial = rows[0];
-	//let rows = table.getElementsByTagName("tr");
-	for(var x =0; x<count; x++)
-	{
-		var cell = document.createElement("td");
-		if(rows==0)
+		let get_row = table.getElementsByTagName("tr");
+		//for every push after the first one
+		for(var x=0; x<numRows; x++)
 		{
-			new_row.append(cell);
-			table.append(new_row);
+			//let get_row = table.getElementsByTagName("tr");
+			var cell = document.createElement("td");
+			get_row[x].append(cell);
 		}
-		//else
-		//{
-			rows[x].append(cell);
-		//}
+		numCols++;
 	}
-	//incrementing the number of cols by 1
-	numCols++;
-	console.log("clicked add col", numCols);
 }
 
 //adding the fill() function
