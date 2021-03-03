@@ -56,24 +56,34 @@ function addC()
 	{
 		numRows=1;
 		numCols=1;
+    //create the new row
 		let rows = document.createElement("tr");
+    //create the new cell
 		var cell = document.createElement("td");
+    //add the cell to the row
 		rows.append(cell);
+    //add the new row to the table
 		table.append(rows);
 	}
 	
+  //for every other button push
 	else
 	{
+    //get the current existing rows in the table 
 		let get_row = table.getElementsByTagName("tr");
-		//for every push after the first one
+    //go through each row
 		for(var x=0; x<numRows; x++)
 		{
-			//let get_row = table.getElementsByTagName("tr");
+      //make a new cell
 			var cell = document.createElement("td");
+      //add cell to the row it is currently on
 			get_row[x].append(cell);
 		}
-		numCols++;
-	}
+    //increment the number of numCols
+    numCols++;
+	//checking that the rows were being added
+	//console.log("clicked add row", numRows);
+  }
 }
 
 //adding the fill() function
@@ -117,10 +127,15 @@ function removeR(){
 	//rows is a list of the TR elements that exist on the page
 	let rows = document.getElementById('grid').getElementsByTagName("TR");
 	if(rows.length == 0){ //edge case if there are no rows to remove
-		alert("no more rows to remove, add some if you like")
+    
+		alert("no more rows to remove, add some if you like");
 	}else{	
 		rows[rows.length-1].remove();//gets the last row in the list of rows to remove
-		numRows--;//decrease global counter
+		numRows--;//decrease global counter by 1
+	}
+
+	if(numRows == 0){//checks to make sure global counters are updated accurately 
+		numCols =0;
 	}
 }//end of removeR method
 /****************************************************************************************/
@@ -131,14 +146,20 @@ function removeR(){
 function removeC(){ 
 	//rows is a list of the TR elements that exist on the page
 	let rows = document.getElementById('grid').getElementsByTagName("TR");
+
+	if(numCols == 0){ //if no colums send alert
+		alert("no more rows to remove, add some if you like");
+	}else{
+		numCols--; //decrease global counter by 1
+	}
+
 	for(let i =0;i<rows.length;i++){
 		let cols = rows[i].getElementsByTagName("TD");//gets list of all the columns per row
-		if(cols.length == 0){ //if no colums send alert
-			alert("no more columns to delete, add some if you like");
-		}else{
-			cols[cols.length-1].remove(); //remove last column
-			numCols--; //decrease global counter
+		if(numCols == 0){//checks to make sure global counters are updated accurately 
+			numRows=0;
 		}
+		cols[cols.length-1].remove(); //remove last column
 	}
+	console.log(numRows, "cols:", numCols);
 }//end of removeC method
 /****************************************************************************************/
