@@ -86,6 +86,25 @@ function addC()
   }
 }
 
+//adding fillU() method
+//done by James Yoo
+function fillU()
+{
+	let original_box= document.getElementById("grid");	//access the grid
+	let trs=original_box.getElementsByTagName("tr");	//get all the elements of tr
+	
+	for (let i=0; i<numRows; i++)						//loop through to go through tows and columns
+	{
+		let tds= trs[i].getElementsByTagName("td");		//to access the columns of the boxes in each row
+		for (let j=0; j<numCols; j++)
+		{
+			if (tds[j].style.backgroundColor==="" || tds[j].style.backgroundColor==="white"){		//if the box is white or undefined(for some reason thats how it is instantiated)
+				tds[j].style.backgroundColor=colorSelected;     //change color to color Selected
+			}
+		}
+	}
+}
+
 //adding the fill() function
 //done by James Yoo
 function fill()
