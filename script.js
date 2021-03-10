@@ -2,7 +2,8 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected;
 
-function selected(){
+function selected()
+{
 	colorSelected = document.getElementById("selectedID").value;
 	console.log(colorSelected);
 }
@@ -33,9 +34,9 @@ function addR()
 	for(var x=0; x<count; x++)
 	{
 		//making the new block
-		var cell = document.createElement("td");
 		//adding the block to the row
-		rows.append(cell);
+		//helper function below  to help change the color for each cell on click
+		rows.append(ChangeColor());
 	}
 	//adding the completed row to the grid
 	table.append(rows);
@@ -59,9 +60,11 @@ function addC()
     //create the new row
 		let rows = document.createElement("tr");
     //create the new cell
-		var cell = document.createElement("td");
+
+		//var cell = document.createElement("td");
     //add the cell to the row
-		rows.append(cell);
+	//helper function below  to help change the color for each cell on click
+		rows.append(ChangeColor());
     //add the new row to the table
 		table.append(rows);
 	}
@@ -75,9 +78,11 @@ function addC()
 		for(var x=0; x<numRows; x++)
 		{
       //make a new cell
-			var cell = document.createElement("td");
+			//var cell = document.createElement("td");
       //add cell to the row it is currently on
-			get_row[x].append(cell);
+	  //helper function below  to help change the color for each cell on click
+			get_row[x].append(ChangeColor());
+
 		}
     //increment the number of numCols
     numCols++;
@@ -182,3 +187,25 @@ function removeC(){
 	console.log(numRows, "cols:", numCols);
 }//end of removeC method
 /****************************************************************************************/
+
+
+/****************************************************************************************************/
+/*
+Done by: Alfonso Gunawan
+ChangeColor()
+Click on a single cell, changing its color to the currently selected color. This function acts the helper function for the addR
+and addC functions as they will append the rows to the correct color when selecting the cell. When the desired color is selected, the 
+clicked cell will change to that specific color. It will also override any other color that was already previously filled.
+*/
+
+function ChangeColor()
+{
+	let cell = document.createElement("td"); //lets the cell value be determined by td
+	//create an event on click to have the cells change color when clicked
+    cell.addEventListener('click', function(){this.style.backgroundColor = colorSelected}, false); 
+	//return the value of the cell
+    return cell;
+}
+
+/*****************************************************************************************************************/
+
