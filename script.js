@@ -35,7 +35,6 @@ function addR()
 	{
 		//making the new block
 		//adding the block to the row
-
 		//helper function below  to help change the color for each cell on click
 		rows.append(ChangeColor());
 	}
@@ -61,6 +60,7 @@ function addC()
     //create the new row
 		let rows = document.createElement("tr");
     //create the new cell
+
 		//var cell = document.createElement("td");
     //add the cell to the row
 	//helper function below  to help change the color for each cell on click
@@ -82,6 +82,7 @@ function addC()
       //add cell to the row it is currently on
 	  //helper function below  to help change the color for each cell on click
 			get_row[x].append(ChangeColor());
+
 		}
     //increment the number of numCols
     numCols++;
@@ -187,6 +188,7 @@ function removeC(){
 }//end of removeC method
 /****************************************************************************************/
 
+
 /****************************************************************************************************/
 /*
 Done by: Alfonso Gunawan
@@ -206,3 +208,4 @@ function ChangeColor()
 }
 
 /*****************************************************************************************************************/
+
